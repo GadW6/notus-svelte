@@ -1,0 +1,16 @@
+# docker compose -p notus-front -f docker/docker-compose.yml up -d --force-recreate --remove-orphans
+
+version: '3.8'
+services:
+  notus:
+    image: node:21-bookworm
+    container_name: notus
+    tty: true
+    working_dir: /app
+    volumes:
+      - ../:/app
+    ports:
+      - 8081:5000
+    entrypoint: [ '/bin/bash' ]
+    # command: [ 'npm', 'run', 'dev', '--', '--host' ]
+    restart: unless-stopped

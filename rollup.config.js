@@ -67,7 +67,7 @@ const indexTemplate = `<!--
     <script defer src="<<live-preview-link>>/build/bundle.js"></script>
   </head>
 
-  <body class="text-blueGray-700 antialiased">
+  <body class="text-slate-700 antialiased">
     <noscript>
       <strong
         >We're sorry but notus-svelte doesn't work properly without
@@ -131,7 +131,7 @@ function serve() {
       if (server) return;
       server = require("child_process").spawn(
         "npm",
-        ["run", "start", "--", "--dev"],
+        ["run", "start", "--", "--dev", "--host"],
         {
           stdio: ["ignore", "inherit", "inherit"],
           shell: true,
